@@ -5,6 +5,11 @@
   --foreground: #171717;
   color-scheme: dark;
 }
+  /* 系统字体栈（替代 next/font 联网下载，保证离线构建/运行） */
+  --font-geist-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
 /* 强制所有原生控件使用暗色渲染 */
 select,

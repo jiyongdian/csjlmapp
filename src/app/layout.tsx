@@ -39,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN" suppressHydrationWarning translate="no">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased notranslate`}
+        className={`antialiased notranslate`}
       >
         <ErrorBoundary>
           <SiteSettingsProvider>

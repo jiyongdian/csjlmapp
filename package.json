@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "package": "node scripts/package-release.js",
+    "package": "node scripts/package-portable.cjs",
     "build:check": "next build",
     "start:prod": "next start -p 5000"
   },

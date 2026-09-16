@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // 自包含输出：供便携版/安装程序直接使用；不影响 next start 等常规启动
+  output: "standalone",
   // 类型错误暂不阻断构建（阶段2 将逐目录清零后移除此项）
   typescript: {
     ignoreBuildErrors: true,
