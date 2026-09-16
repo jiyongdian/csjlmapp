@@ -2,7 +2,7 @@
 # 构建: docker build -t csjlm:latest .
 # 运行: docker compose -f deploy/docker-compose.yml up -d --build
 
-FROM node:20-alpine AS deps
+FROM node:24-alpine AS deps
 WORKDIR /app
 RUN corepack enable
 # better-sqlite3 等原生依赖缺少预编译产物时兜底编译
@@ -10,14 +10,14 @@ RUN apk add --no-cache python3 make g++
 COPY package.json pnpm-lock.yaml* ./
 RUN pnpm install --frozen-lockfile=false
 
-FROM node:20-alpine AS builder
+FROM node:24-alpine AS builder
 WORKDIR /app
 RUN corepack enable
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN pnpm build
 
-FROM node:20-alpine AS runner
+FROM node:24-alpine AS runner
 WORKDIR /app
 RUN corepack enable && apk add --no-cache tini
 ENV NODE_ENV=production

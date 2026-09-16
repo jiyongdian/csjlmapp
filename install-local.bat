@@ -15,7 +15,7 @@ set NODE_OK=0
 for /f "delims=" %%i in ('node -v 2^>nul') do set NODE_VER=%%i
 if defined NODE_VER set NODE_OK=1
 if %NODE_OK%==0 (
-  echo [错误] 未检测到 Node.js。请先安装 Node.js ^>= 20：
+  echo [错误] 未检测到 Node.js。请先安装 Node.js ^>= 22.5 ^(推荐 24 LTS^)：
   echo        https://nodejs.org/zh-cn/download
   exit /b 1
 )

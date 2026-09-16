@@ -12,7 +12,7 @@ APP_DIR="/opt/${APP_NAME}"
 REPO_URL="${REPO_URL:-https://github.com/jiyongdian/csjlmapp.git}"
 BRANCH="${BRANCH:-main}"
 RUN_PORT="${RUN_PORT:-5000}"
-NODE_MAJOR="${NODE_MAJOR:-20}"
+NODE_MAJOR="${NODE_MAJOR:-24}"
 
 echo "============================================================"
 echo "  创世纪联盟智能写作 · 服务器一键部署"

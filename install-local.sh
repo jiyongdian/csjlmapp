@@ -9,7 +9,7 @@ echo "============================================================"
 
 # 1. Node 检查
 if ! command -v node >/dev/null 2>&1; then
-  echo "[错误] 未检测到 Node.js (>=20)。安装: https://nodejs.org"
+  echo "[错误] 未检测到 Node.js (>=22.5)。安装: https://nodejs.org"
   exit 1
 fi
 NODE_VER=$(node -v)
