@@ -9,7 +9,7 @@ set -e
 # ---- 可配置项 ----
 APP_NAME="csjlm"
 APP_DIR="/opt/${APP_NAME}"
-REPO_URL="${REPO_URL:-}"            # 例: https://github.com/user/repo.git
+REPO_URL="${REPO_URL:-https://github.com/jiyongdian/csjlmapp.git}"
 BRANCH="${BRANCH:-main}"
 RUN_PORT="${RUN_PORT:-5000}"
 NODE_MAJOR="${NODE_MAJOR:-20}"
@@ -20,7 +20,7 @@ echo "============================================================"
 
 if [ -z "$REPO_URL" ]; then
   echo "[错误] 未提供仓库地址。请先导出或修改脚本顶部 REPO_URL，例如："
-  echo "       REPO_URL=https://github.com/you/csjlm.git bash install-server.sh"
+  echo "       REPO_URL=https://github.com/jiyongdian/csjlmapp.git bash install-server.sh"
   exit 1
 fi
 
