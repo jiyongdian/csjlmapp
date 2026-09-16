@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  color-scheme: dark;
+}
+
+/* 强制所有原生控件使用暗色渲染 */
+select,
+select option,
+input,
+textarea {
+  color-scheme: dark;
+  background-color: #1a1a1a;
+  color: #ededed;
+}
+
+/* 下拉框弹出层样式 */
+select option {
+  background-color: #1a1a1a;
+  color: #ededed;
+  padding: 8px 12px;
+}
+
+select option:checked,
+select option:hover {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* 自定义动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 20px) scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -10px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.5s ease-out;
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #8b5cf6, #6366f1);
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #7c3aed, #4f46e5);
+}
+
+@media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+
+/* 站点统一背景启用时（body.site-bg-on），隐藏页面自带背景，让背景图/视频/特效透出 */
+body.site-bg-on #app-content > * {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* 背景图/视频启用时（body.site-bg-media）：自动增强模块背景与文字对比度，保证字体清晰且保留模块色系 */
+body.site-bg-media #app-content {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+body.site-bg-media #app-content [class*="bg-"][class*="/"],
+body.site-bg-media #app-content [style*="rgba(255,255,255,0.0"],
+body.site-bg-media #app-content [style*="rgba(255, 255, 255, 0.0"] {
+  background-color: color-mix(in srgb, currentColor 20%, rgba(9, 9, 22, 0.84)) !important;
+  backdrop-filter: blur(12px) saturate(1.15);
+  -webkit-backdrop-filter: blur(12px) saturate(1.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* 纯毛玻璃模块（无底色，仅 backdrop-blur）在图片背景上补一层深色底，保证可读性 */
+body.site-bg-media #app-content [class*="backdrop-blur"] {
+  background-color: rgba(9, 9, 22, 0.74) !important;
+}
+
+/* 图片背景上次要文字提亮，避免灰字看不清 */
+body.site-bg-media #app-content [class~="text-gray-400"],
+body.site-bg-media #app-content [class~="text-gray-500"],
+body.site-bg-media #app-content [class~="text-gray-600"] {
+  color: #c9cde3 !important;
+}

@@ -1,0 +1,92 @@
+# Dependencies
+node_modules
+dist
+.DS_Store
+*.swp
+__pycache__/
+*.pyc
+.venv/*
+*.o
+*.a
+/vendor
+*.egg-info/
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.development
+
+# JS/TS bundlers & build outputs
+.next
+.nuxt
+.turbo
+.vercel
+.parcel-cache
+.cache
+coverage
+storybook-static
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+novel.db
+
+
+# Build info
+*.tsbuildinfo
+
+# IDE
+.trae/
+
+# Package manager artifacts
+.pnp*
+.npm
+
+# Python tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# Go tooling
+bin/
+*.test
+
+# Editor / IDE
+.vscode/
+.idea/
+*.iml
+
+# OS / misc
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+output.log
+*.log
+*.log.*
+logs/
+
+# Coze
+.cozeproj/reduction
+
+# Temp files
+tmp/
+temp/
+*.tmp
+
+# 运行时生成的媒体数据（图片/视频/音频）
+public/media/
+
+# 本地脚本与 token 产物
+_token.txt
+_*.txt
+*.local
+
+# 运行时写入的业务数据（每台部署各自生成，勿提交）
+storage/system-settings.json
+storage/ComfyUIAI/workflows/

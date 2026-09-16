@@ -1,0 +1,6 @@
+allowBuilds:
+  better-sqlite3: true
+  esbuild: true
+  ffmpeg-static: set this to true or false
+  sharp: true
+  unrs-resolver: true

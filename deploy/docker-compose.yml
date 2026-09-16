@@ -1,0 +1,28 @@
+# 用法（在仓库根目录执行）：
+#   cp .env.example .env.local
+#   docker compose -f deploy/docker-compose.yml up -d --build
+# build.context 相对 compose 文件（deploy/）向上取仓库根；Dockerfile 在仓库根
+services:
+  csjlm:
+    build:
+      context: ..
+    image: csjlm:latest
+    container_name: csjlm
+    restart: unless-stopped
+    ports:
+      - "${DEPLOY_RUN_PORT:-5000}:5000"
+    env_file:
+      - ../.env.local
+    environment:
+      NODE_ENV: production
+      DB_PATH: /data/novel.db
+    volumes:
+      - csjlm-data:/data
+      - csjlm-media:/app/public/media
+    # 可选：PostgreSQL 不需要内置服务，直接在 .env.local 配 PGDATABASE_URL 外连实例
+
+volumes:
+  csjlm-data:
+    name: csjlm-data
+  csjlm-media:
+    name: csjlm-media
